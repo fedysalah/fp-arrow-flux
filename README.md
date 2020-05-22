@@ -1,6 +1,6 @@
 ### Context
 
-This is an Example of a web application using Spring Web Flux without without any Spring Magic.
+This is an Example of a web application using Spring Web Flux without any Spring Magic.
 
 The aim of this project, is to introduce FP using Kotlin and Arrow for non functional programmers, in a boiler plate free way.  
 
