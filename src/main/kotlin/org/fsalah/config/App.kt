@@ -1,0 +1,22 @@
+package org.fsalah.config
+
+import org.fsalah.handlers.HealthCheck
+import org.springframework.context.support.BeanDefinitionDsl
+import org.springframework.context.support.beans
+import org.springframework.web.reactive.function.server.HandlerStrategies
+import org.springframework.web.reactive.function.server.RouterFunctions
+import org.springframework.web.server.adapter.WebHttpHandlerBuilder
+
+object App {
+    fun register() = beans {
+        routes(this)
+    }
+
+    private fun routes(ctx: BeanDefinitionDsl) = with (ctx) {
+        bean(WebHttpHandlerBuilder.WEB_HANDLER_BEAN_NAME) {
+            RouterFunctions.toWebHandler(ref<Router>().routes, HandlerStrategies.withDefaults())
+        }
+        bean<Router>()
+        bean<HealthCheck>()
+    }
+}

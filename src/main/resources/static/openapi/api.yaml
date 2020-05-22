@@ -1,0 +1,22 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title:
+  description: API Arrow FP
+  contact:
+    name: Fsalah
+    email: fedy.salah@gmail.com
+servers:
+  - url: 'http://localhost:8000'
+paths:
+  /api/v1/health-check:
+    get:
+      tags:
+        - Healthcheck
+      description: 'Check if the service is up '
+      operationId: healthcheck
+      responses:
+        '200':
+          description: OK
+      summary: Check for the service's health
+
