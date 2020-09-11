@@ -1,6 +1,8 @@
 package org.fsalah.config
 
-import org.fsalah.handlers.HealthCheck
+import org.fsalah.handlers.HealthHandler
+import org.fsalah.handlers.PersonHandler
+import org.fsalah.services.PersonService
 import org.springframework.context.support.BeanDefinitionDsl
 import org.springframework.context.support.beans
 import org.springframework.web.reactive.function.server.HandlerStrategies
@@ -17,6 +19,8 @@ object App {
             RouterFunctions.toWebHandler(ref<Router>().routes, HandlerStrategies.withDefaults())
         }
         bean<Router>()
-        bean<HealthCheck>()
+        bean<HealthHandler>()
+        bean<PersonHandler>()
+        bean<PersonService>()
     }
 }
