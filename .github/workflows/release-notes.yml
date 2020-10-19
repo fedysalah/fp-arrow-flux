@@ -14,3 +14,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }}
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
+      - name: Upload Release Notes to Wiki
+        uses: docker://decathlon/wiki-page-creator-action:latest
+        env:
+          ACTION_MAIL: release@users.noreply.github.com
+          ACTION_NAME: release
+          GH_PAT: ${{ secrets.FEDY_TOKEN }}
+          MD_FOLDER: temp_release_notes
+          OWNER: Fsalah
+          REPO_NAME: fp-arrow-flux
+          SKIP_MD: README.md
