@@ -1,13 +1,9 @@
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - '*' # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: Create Release on push
-
+  milestone:
+    types: [closed]
+name: Milestone Closure
 jobs:
-  build:
+  create-release:
     name: Create Release on push
     runs-on: ubuntu-latest
     steps:
