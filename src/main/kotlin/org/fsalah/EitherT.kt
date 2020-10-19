@@ -11,6 +11,7 @@ import arrow.fx.reactor.fix
 import arrow.fx.reactor.k
 import arrow.mtl.EitherT
 import arrow.mtl.extensions.eithert.monad.monad
+import arrow.mtl.fix
 import arrow.mtl.value
 import org.fsalah.EitherTJug.BookingError
 import reactor.kotlin.core.publisher.toMono
@@ -28,7 +29,7 @@ object EitherTJug {
     )
 
     val confrencesDB: Map<Int, Conference> = mapOf(
-            1 to Conference(name = "JugSummerCamp")
+            2 to Conference(name = "JugSummerCamp")
     )
 
     object City
@@ -43,7 +44,7 @@ object EitherTJug {
 
     data class Speaker(val name: String) {
         fun nextTalk(): Either<BookingError, Talk> {
-            return Right(Talk(2))
+            return Right(Talk(1))
         }
     }
 
@@ -79,13 +80,13 @@ object EitherTJug {
     }
 
     fun processBookingT(id: Int): MonoK<Either<BookingError, String>> {
-        return EitherT.monad<BookingError, ForMonoK>(MonoK.monad()).fx.monad {
-            val speaker = !EitherT(Repository.getSpeaker(id))
-            val talk: Talk = !EitherT(speaker.nextTalk().toMono().k())
-            val conference = !EitherT(Repository.getConference(talk.id))
-            val city = !EitherT(conference.getCity().toMono().k())
-            bookFlight(city, speaker)
-        }.value().fix()
+       return EitherT.monad<BookingError, ForMonoK>(MonoK.monad()).fx.monad {
+           val speaker = !EitherT(Repository.getSpeaker(id))
+           val talk = !EitherT(speaker.nextTalk().toMono().k())
+           val conference = !EitherT(Repository.getConference(talk.id))
+           val city = !EitherT(conference.getCity().toMono().k())
+           bookFlight(city, speaker)
+       }.value().fix()
     }
 }
 
