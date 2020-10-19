@@ -14,13 +14,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }}
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
-      - name: Upload Release Notes to Wiki
-        uses: docker://decathlon/wiki-page-creator-action:latest
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
         env:
-          ACTION_MAIL: release@users.noreply.github.com
-          ACTION_NAME: release
-          GH_PAT: ${{ secrets.FEDY_TOKEN }}
-          MD_FOLDER: temp_release_notes
-          OWNER: fedysalah
-          REPO_NAME: fp-arrow-flux
-          SKIP_MD: README.md
+          GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body_path: temp_release_notes
+          draft: false
+          prerelease: false
