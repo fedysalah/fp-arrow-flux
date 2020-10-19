@@ -8,7 +8,7 @@ name: Create Release on push
 
 jobs:
   build:
-    name: Create Release
+    name: Create Release on push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
