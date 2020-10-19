@@ -21,6 +21,6 @@ jobs:
           ACTION_NAME: release
           GH_PAT: ${{ secrets.FEDY_TOKEN }}
           MD_FOLDER: temp_release_notes
-          OWNER: Fsalah
+          OWNER: fedysalah
           REPO_NAME: fp-arrow-flux
           SKIP_MD: README.md
