@@ -4,6 +4,7 @@ import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
 import arrow.core.extensions.fx
+import arrow.core.nel
 
 object JugOption {
 
@@ -18,7 +19,7 @@ object JugOption {
     }
 
     object Speaker {
-        fun nextTalk(): Option<Talk> = Some(Talk)
+        fun nextTalk(): Option<Talk> = None
     }
 
     fun getSpeaker(id: Int): Option<Speaker> = Some(Speaker)
@@ -39,13 +40,13 @@ object JugOption {
     }
 
     fun processFlightFx(id: Int): Option<String> {
-       return Option.fx {
-            val speaker = !getSpeaker(id)
-            val talk = !speaker.nextTalk()
-            val conference = !talk.getConference()
-            val city = !conference.getCity()
-            bookFlight(city, speaker)
-        }
+     return Option.fx {
+          val speaker = !getSpeaker(id)
+          val talk = !speaker.nextTalk()
+          val conference = !talk.getConference()
+          val city = !conference.getCity()
+          bookFlight(city, speaker)
+      }
     }
 
 }
