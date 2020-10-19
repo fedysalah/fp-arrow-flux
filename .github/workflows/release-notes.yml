@@ -14,14 +14,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }}
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
+      - run: echo heloo 
+            echo "$OUTPUT_FILENAME"
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{steps.version.outputs.project-version}}
-          release_name: Release ${{steps.version.outputs.project-version}}
-          body_path: temp_release_notes/${{steps.version.outputs.project-version}}.md
+          tag_name: $OUTPUT_FILENAME
+          release_name: Release $OUTPUT_FILENAME
+          body_path: temp_release_notes/$OUTPUT_FILENAME.md
           draft: false
           prerelease: false
