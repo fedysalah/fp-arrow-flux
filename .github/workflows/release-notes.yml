@@ -13,15 +13,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }}
           OUTPUT_FOLDER: temp_release_notes
-      - run: echo "$OUTPUT_FILENAME"
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.FEDY_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.event.milestone.title }}
-          release_name: Release ${{ github.event.milestone.title }}
-          body_path: temp_release_notes/release_file.md
-          draft: false
-          prerelease: false
