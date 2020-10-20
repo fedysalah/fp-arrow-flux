@@ -1,12 +1,9 @@
 name: Releases
-
 on: 
   push:
     tags:
     - '*'
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
