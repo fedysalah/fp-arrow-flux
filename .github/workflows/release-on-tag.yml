@@ -13,5 +13,5 @@ jobs:
     - uses: actions/checkout@v1
     - uses: ncipollo/release-action@v1
       with:
-        bodyFile: "body.md"
+        bodyFile: "temp_release_notes/release_file.md"
         token: ${{ secrets.FEDY_TOKEN }}
