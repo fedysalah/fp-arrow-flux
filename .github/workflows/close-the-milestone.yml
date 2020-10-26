@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          MILSTONE_NAME=$(curl -X GET -H 'Authorization: Bearer f0a51f7ec549db55257c51c2666216f0d273c8b1' https://api.github.com/repos/fedysalah/fp-arrow-flux/tags\?per_page\=1\&page\=0 | jq '.[0] |.name' | sed  's/V//g' | sed  's/"//g')
+          MILSTONE_NAME=$(curl -X GET -H 'Authorization: Bearer 258ae9e248f1e5081e40ecf8fd7a2e5c78a87ede' https://api.github.com/repos/fedysalah/fp-arrow-flux/tags\?per_page\=1\&page\=0 | jq '.[0] |.name' | sed  's/V//g' | sed  's/"//g')
           echo "hello $MILSTONE_NAME"
         
