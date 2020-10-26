@@ -1,18 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TAG
+name: Close the milestone
 on:
-  create:
-    tags: 
-     - 'v*'
+  push:
+    tags:
+      - v**
 jobs:
-  build:
+  close_milestone:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'hello world'
-      - uses: adlerhsieh/prepare-release@v0.1.2
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_OWNER: 'fedysalah'
-          REPO: 'fp-arrow-flux'
-          IGNORE_MILESTONE_NOT_FOUND: false
+      - run: echo 'hello bitch'
