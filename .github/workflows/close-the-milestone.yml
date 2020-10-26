@@ -2,7 +2,7 @@ name: Close the milestone e
 on:
   push:
     tags:
-      - 'v**'
+      - '**'
 jobs:
   close_milestone:
     runs-on: ubuntu-latest
