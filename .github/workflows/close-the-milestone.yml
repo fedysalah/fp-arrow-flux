@@ -1,11 +1,9 @@
 name: Close the milestone r
 on:
   push:
-    tags: 
-      - v**
 jobs:
   close_milestone:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Narrdin!! "
+      - run: echo 'Narrdin!! ${{github.event.head_commit.message}} ' 
         
