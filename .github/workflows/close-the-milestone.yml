@@ -1,8 +1,10 @@
 name: Close the milestone e
 on:
   push:
-    tags:
-    - '*'
+    tags: 
+      - "**"
+    branches:
+      - refs/tags/*
 jobs:
   close_milestone:
     runs-on: ubuntu-latest
