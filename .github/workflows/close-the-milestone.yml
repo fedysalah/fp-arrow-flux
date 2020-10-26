@@ -1,10 +1,8 @@
 name: Close the milestone
 on:
   push:
-    paths:
-      - '**'
     tags:
-      - v**
+      - 'v**'
 jobs:
   close_milestone:
     runs-on: ubuntu-latest
