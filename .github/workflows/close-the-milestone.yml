@@ -1,4 +1,4 @@
-name: Close the milestone
+name: Close the milestone e
 on:
   push:
     tags:
@@ -7,7 +7,5 @@ jobs:
   close_milestone:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        ID=`curl -X GET -H 'Authorization: Bearer xxx' https://api.github.com/repos/MAIF/otoroshi/milestones | jq '.[] | select(.title=="v1.5.0") | .id'`
-        echo "milestone id is: $ID"
-        curl -X PATCH -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/MAIF/otoroshi/milestones/$ID" -d '{"state":"closed"}'
+      - run: echo "Narrdin!! "
+        
