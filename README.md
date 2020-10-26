@@ -8,7 +8,7 @@ The aim of this project, is to introduce FP using Kotlin and Arrow for non funct
 
 
 ##TODO LIST
- - [ ] Introduce arrow
+ - [ x ] Introduce arrow
  - [ ] Use Higher Kinds
  - [ ] Handle IO Effects using Monads
  - [ ] Combine IO Effects
