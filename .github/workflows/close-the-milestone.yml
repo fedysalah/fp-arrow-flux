@@ -1,11 +1,8 @@
-name: Close the milestone e
+name: Close the milestone r
 on:
-  create: 
-    tags:
-     - "**"
   push:
     tags: 
-      - "**"
+      - v**
 jobs:
   close_milestone:
     runs-on: ubuntu-latest
