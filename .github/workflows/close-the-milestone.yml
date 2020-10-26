@@ -5,5 +5,7 @@ jobs:
   close_milestone:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Narrdin!! ${{github.event.head_commit.message}} ' 
+      - run: |
+          MILSTONE_NAME=$(curl -X GET -H 'Authorization: Bearer f0a51f7ec549db55257c51c2666216f0d273c8b1' https://api.github.com/repos/fedysalah/fp-arrow-flux/tags\?per_page\=1\&page\=0 | jq '.[0] |.name' | sed  's/V//g' | sed  's/"//g')
+          echo "hello $MILSTONE_NAME"
         
