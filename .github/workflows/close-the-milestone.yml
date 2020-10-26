@@ -1,5 +1,8 @@
 name: Close the milestone e
 on:
+  create: 
+    tags:
+     - "**"
   push:
     tags: 
       - "**"
